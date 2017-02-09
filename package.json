@@ -1,0 +1,19 @@
+{
+  "name": "tt-twitter-interface",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firstnecron/tt-twitter-interface.git"
+  },
+  "author": "Justin Russo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstnecron/tt-twitter-interface/issues"
+  },
+  "homepage": "https://github.com/firstnecron/tt-twitter-interface#readme"
+}
