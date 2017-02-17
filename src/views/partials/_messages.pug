@@ -1,0 +1,17 @@
+extends _app-section
+block content
+	ul.app--message--list
+		li
+			h3 Conversation with
+				a Jill Spore
+			ul.app--message--conversation
+				li.app--message
+					.app--avatar(style="background-image: url(static/images/f-spore.png)")
+						img(src="static/images/f-spore.png)")
+					p.app--message--text {{Message Text}}
+					p.app--message--timestamp {{3 Hours ago}}
+				li.app--message--me
+					.app--avatar(style="background-image: url(static/images/m-spore.png)")
+						img(src="static/images/m-spore.png)")
+					p.app--message--text {{Message Text From Me}}
+					p.app--message--timestamp {{2 Hours ago}}
