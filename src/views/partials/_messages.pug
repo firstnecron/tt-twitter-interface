@@ -2,17 +2,17 @@ extends _app-section
 block content
 	ul.app--message--list
 		li
-			h3 Conversation with
-				=" "
-				a Jill Spore
 			ul.app--message--conversation
-				li.app--message
-					.app--avatar(style="background-image: url(static/images/f-spore.png)")
-						img(src="static/images/f-spore.png)")
-					p.app--message--text {{Message Text}}
-					p.app--message--timestamp {{3 Hours ago}}
-				li.app--message--me
-					.app--avatar(style="background-image: url(static/images/m-spore.png)")
-						img(src="static/images/m-spore.png)")
-					p.app--message--text {{Message Text From Me}}
-					p.app--message--timestamp {{2 Hours ago}}
+				each message in messages
+					if message.sender.screen_name !== userData.screen_name
+						li.app--message
+							.app--avatar(style=`background-image: url(${message.sender.profile_image_url})`)
+								img(src=`${message.sender.profile_image_url}` alt=`${message.sender.screen_name}`)
+							p.app--message--text #{message.text}
+							p.app--message--timestamp #{message.created_at}
+					else
+						li.app--message--me
+							.app--avatar(style=`background-image: url(${message.sender.profile_image_url})`)
+								img(src=`${message.sender.profile_image_url}` alt=`${message.sender.screen_name}`)
+							p.app--message--text @#{message.recipient_screen_name} - #{message.text}
+							p.app--message--timestamp(data_created_at=`${message.created_at}`)

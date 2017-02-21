@@ -1,3 +1,3 @@
 'use strict';
 
-const config = require('../config');
+const routing = require('./routing');

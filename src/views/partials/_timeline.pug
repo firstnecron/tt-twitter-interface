@@ -1,27 +1,28 @@
 extends _app-section
 block content
 	ul.app--tweet--list
-		li
-			strong.app--tweet--timestamp 4h
-			a.app--tweet--author
-				.app--avatar(style="background-image: url(static/images/f-spore.png)")
-					img(src="static/images/f-spore.png")
-				h4 Jill Spore
-				=" "
-				|@jillspore
-			p {{Tweet Message}}
-			ul.app--tweet--actions.circle--list--inline
-				li
-					a.app--reply
-						span.tooltip Reply
-						include ../../../public/images/reply.svg
-				li
-					a.app--retweet
-						span.tooltip Retweet
-						include ../../../public/images/retweet.svg
-						strong {{Retweet count}}
-				li
-					a.app--like
-						span.tooltip Like
-						include ../../../public/images/like.svg
-						strong {{Like count}}
+		each tweet in timeline
+			li
+				strong.app--tweet--timestamp(data_created_at=`${tweet.created_at}`)
+				a.app--tweet--author
+					.app--avatar(style=`background-image: url(${tweet.user.profile_image_url})`)
+						img(src=`${tweet.user.profile_image_url}`)
+					h4 #{tweet.user.name}
+					=" "
+					|@#{tweet.user.screen_name}
+				p #{tweet.text}
+				ul.app--tweet--actions.circle--list--inline
+					li
+						a.app--reply
+							span.tooltip Reply
+							include ../../../public/images/reply.svg
+					li
+						a.app--retweet
+							span.tooltip Retweet
+							include ../../../public/images/retweet.svg
+							strong #{tweet.retweet_count}
+					li
+						a.app--like
+							span.tooltip Like
+							include ../../../public/images/like.svg
+							strong #{tweet.favorite_count}

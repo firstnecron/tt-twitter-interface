@@ -1,13 +1,14 @@
 extends _app-section
 block content
 	ul.app--user--list
-		li
-			.circle--fluid
-				.circle--fluid--cell.circle--fluid--primary
-					a.app--tweet--author
-						.app--avatar(style="background-image: url(static/images/f-spore.png)")
-							img(src="static/images/f-spore.png)")
-						h4 Jill Spore
-						p @jillspore
-				.circle--fluid--cell
-					a.button.button-text Unfollow
+		each followUser in following
+			li
+				.circle--fluid
+					.circle--fluid--cell.circle--fluid--primary
+						a.app--tweet--author
+							.app--avatar(style=`background-image: url(${followUser.profile_image_url})`)
+								img(src=`${followUser.profile_image_url}`)
+							h4 #{followUser.name}
+							p @#{followUser.screen_name}
+					.circle--fluid--cell
+						a.button.button-text Unfollow

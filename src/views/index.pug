@@ -6,8 +6,8 @@ block content
 		form
 			.circle--fluid
 				.circle--fluid--cell.circle--fluid--primary.align-bottom.app--tweet--post
-					.app--avatar(style="background-image: url(static/images/m-spore.png)")
-						img(src="static/images/m-spore.png")
+					.app--avatar(style=`background-image: url(${userData.profile_image_url})`)
+						img(src=`${userData.profile_image_url}`)
 					textarea#tweet-textarea.circle--textarea--input(placeholder="What's happening?")
 					strong#tweet-char.app--tweet--char 140
 				.circle--fluid--cell.align-bottom
@@ -19,7 +19,7 @@ block content
 					h2 Timeline
 			.grid-33
 				.app--section--heading
-					strong 129
+					strong #{userData.friends_count}
 					h2 Following
 			.grid-33
 				.app--section--heading
