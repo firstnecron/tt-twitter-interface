@@ -131,7 +131,7 @@ const getData = callback => {
 			.then(getMessages)
 			.then(() => {
 				lastRequestTimestamp = latestTimestamp;
-				return callback({
+				return callback(null, {
 					userData,
 					timeline,
 					following,
@@ -140,9 +140,10 @@ const getData = callback => {
 			})
 			.catch(error => {
 				console.error(error);
+				return callback(error, null);
 			})
 	} else {
-		return callback({
+		return callback(null, {
 			userData,
 			timeline,
 			following,
